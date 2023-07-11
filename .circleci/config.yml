@@ -1,11 +1,11 @@
 version: 2.1
 executors:
- docker-publisher: 
- environment:
- IMAGE_NAME: rkapril/education-space
- auth:
-  username: $DOCKERHUB_USERNAME
-  password: $DOCKERHUB_PASSWORD
+  docker-publisher: 
+    environment:
+      IMAGE_NAME: ndukwearm19docker/docker-node-app
+        auth:
+            username: $DOCKERHUB_USERNAME
+            password: $DOCKERHUB_PASSWORD
 
 orbs:
   node: circleci/node@5.0.1
@@ -33,15 +33,16 @@ jobs:
           npm run test
     push:
       executor: docker-publisher
+
       steps: 
-       - checkout
-       - setup_remote_docker
-       - run: 
-        name: Publish Docker Image to Docker Hub
-        command: |
-        echo “$DOCKERHUB_PASSWORD” | docker login -u “$DOCKERHUB_USERNAME” — password-stdin
-        docker build -t $IMAGE_NAME .
-        docker push $IMAGE_NAME:latest
+        - checkout
+        - setup_remote_docker
+        - run: 
+            name: Publish Docker Image to Docker Hub
+            command: |
+              echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+              docker build -t $IMAGE_NAME .
+              docker push $IMAGE_NAME:latest
         
 workflows:
   simple_workflow:
