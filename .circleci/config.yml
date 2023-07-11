@@ -2,7 +2,7 @@ version: 2.1
 executors:
   docker-publisher: 
     environment:
-      IMAGE_NAME: ndukwearm19docker/docker-node-app
+      IMAGE_NAME: rkapril/education-space
     docker: # Each job requires specifying an executor
     # (either docker, macos, or machine), see
       - image: cimg/node:16.10
