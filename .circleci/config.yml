@@ -52,6 +52,6 @@ workflows:
       - test:
           requires:
             - build
-      - publishedLatestToHub
+      - publishedLatestToHub:
           requires:
             - test
