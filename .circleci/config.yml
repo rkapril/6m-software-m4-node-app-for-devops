@@ -34,7 +34,8 @@ jobs:
       - run: |
           echo "Running tests..."
           npm run test
-    push:
+          
+    publish:
       executor: docker-publisher
 
       steps: 
@@ -54,6 +55,6 @@ workflows:
       - test:
           requires:
             - build
-      - push:
+      - publish:
           requires:
             - test
