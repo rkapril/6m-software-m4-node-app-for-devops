@@ -53,5 +53,5 @@ workflows:
           requires:
             - build
       - publishedLatestToHub
-        requires:
-          - test
+          requires:
+            - test
