@@ -37,5 +37,5 @@ workflows:
           requires:
             - build
       - push:
-        requires:
-          - test
+          requires:
+            - test
