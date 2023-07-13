@@ -64,6 +64,11 @@ workflows:
       - build-and-push:
           requires:
             - test
+            filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^\d+\.\d+\.\d+$/
       - deploy:
           requires:
             - build-and-push
