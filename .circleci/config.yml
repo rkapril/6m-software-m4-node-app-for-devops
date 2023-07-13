@@ -63,8 +63,6 @@ workflows:
             - build
       - build-and-push:
           filters:
-            branches:
-              ignore: /.*/
             tags:
               only: /^\d+\.\d+\.\d+$/
           requires:
