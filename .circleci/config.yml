@@ -32,10 +32,10 @@ jobs:
       - docker/check
       - docker/build:
           image: rkapril/education-space
-          tag: 0.1.0
+          tag: 0.1
       - docker/push:
           image: rkapril/education-space
-          tag: 0.1.0
+          tag: 0.1
   deploy:
     docker:
         - image: cimg/node:16.10
