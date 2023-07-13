@@ -53,11 +53,7 @@ jobs:
 workflows:
   simple_workflow:
     jobs:
-      build:
-        filters:
-          branches:
-            only:
-              - main
+      - build
       - test:
           requires:
             - build
