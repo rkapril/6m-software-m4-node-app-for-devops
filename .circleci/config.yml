@@ -63,7 +63,7 @@ workflows:
             - build
       - build-and-push:
           requires:
-            - test
+            - test:
             filters:
             branches:
               ignore: /.*/
