@@ -62,13 +62,13 @@ workflows:
           requires:
             - build
       - build-and-push:
-            filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^\d+\.\d+\.\d+$/
-            requires:
-            - test
+             filters:
+      branches:
+        ignore: /.*/
+      tags:
+        only: /^\d+\.\d+\.\d+$/
+    requires:
+      - test
       - deploy:
           requires:
             - build-and-push
